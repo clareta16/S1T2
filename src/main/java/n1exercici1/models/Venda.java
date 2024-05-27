@@ -7,10 +7,15 @@ public class Venda {
 	private double preuTotal = 0.0 ;
 	
 	public Venda(ArrayList<Producte> llistaProductes, double preuTotal) {
-		this.llistaProductes = llistaProductes;
+		this.llistaProductes = new ArrayList<>();
 		this.preuTotal = preuTotal;
-		
-	}
+
+		try {
+				calcularTotal();
+			} catch (VendaBuidaException e) {
+				System.out.println(e.getMessage());
+			}
+		}
 	
 	public void afegirProducte(Producte producte) {
         llistaProductes.add(producte);
