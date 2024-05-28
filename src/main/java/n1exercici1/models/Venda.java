@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Venda {
 	private ArrayList<Producte> llistaProductes;
-	private double preuTotal = 0.0 ;
+	private double preuTotal;
 
 	public Venda(ArrayList<Producte> llistaProductes, double preuTotal) {
 		this.llistaProductes = llistaProductes;
