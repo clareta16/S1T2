@@ -19,15 +19,24 @@ public class Botiga {
 
         venda.afegirProducte(new Producte("ulleres", 12.5));
         venda.afegirProducte(new Producte("teclat", 8.0));
-		
-	  try {
 
-          int[] array = {1,2};
-          System.out.println(array[3]); 
 
-      } catch (ArrayIndexOutOfBoundsException ex) {
-          System.out.println("S'ha produït una excepció " + ex.getMessage());
-      }
+        try {
+
+            venda.calcularTotal();
+
+            System.out.println("El preu total de la venda és " + venda.getPreuTotal());
+
+
+            int[] array = {1,2};
+            System.out.println(array[3]);
+        } catch (VendaBuidaException ex) {
+            System.out.println(ex.getMessage());
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            System.out.println("S'ha produït una excepció " + ex.getMessage());
+        }
     }
+
+
 
 }

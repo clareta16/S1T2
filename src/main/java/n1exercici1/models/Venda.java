@@ -5,21 +5,16 @@ import java.util.ArrayList;
 public class Venda {
 	private ArrayList<Producte> llistaProductes;
 	private double preuTotal = 0.0 ;
-	
+
 	public Venda(ArrayList<Producte> llistaProductes, double preuTotal) {
-		this.llistaProductes = new ArrayList<>();
+		this.llistaProductes = llistaProductes;
 		this.preuTotal = preuTotal;
 
-		try {
-				calcularTotal();
-			} catch (VendaBuidaException e) {
-				System.out.println(e.getMessage());
-			}
-		}
-	
+	}
+
 	public void afegirProducte(Producte producte) {
-        llistaProductes.add(producte);
-    }
+		llistaProductes.add(producte);
+	}
 
 	public ArrayList<Producte> getLlistaProductes() {
 		return llistaProductes;
@@ -41,17 +36,19 @@ public class Venda {
 	public String toString() {
 		return "Venda [llistaProductes=" + llistaProductes + ", preuTotal=" + preuTotal + "]";
 	}
-	
+
 	public void calcularTotal() throws VendaBuidaException {
-		if(llistaProductes.isEmpty()) {	
-			 throw new VendaBuidaException();
+		if(llistaProductes.isEmpty()) {
+			throw new VendaBuidaException();
 		} else {
-			
+
 			for(Producte producte: llistaProductes) {
-			    this.preuTotal += producte.getPreu();
+				this.preuTotal += producte.getPreu();
 			}
 		}
 	}
-	
+
+
+
 
 }
